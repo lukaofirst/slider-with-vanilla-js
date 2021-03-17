@@ -1,0 +1,113 @@
+:root {
+    --color-bg: rgb(240, 240, 240);
+    --default-blue: dodgerblue;
+    --colorDots: rgb(225,225,225);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans Light';
+}
+
+html, body{
+    height: 100%;
+    background-color: var(--color-bg);
+}
+
+body h1{
+    text-align: center;
+    padding: 10px;
+    color: var(--default-blue);
+}
+
+.slide-container{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+}
+
+.slide-container .slide{
+    display: block;
+    width: 100%;
+}
+
+.slide-container .fade{
+    animation: fade 1s cubic-bezier(0.55,0.085,0.68,0.53) both;
+}
+
+.slide-container .slide img{
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+}
+
+.slide-container .prev, .slide-container .next{
+    cursor:pointer;
+    position: absolute;
+    margin-top: -10px;
+    padding:10px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: rgba(0,0,0,0.25);
+    border-radius: 2px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    transition: 0.7s;
+}
+
+.slide-container .prev:hover, .slide-container .next:hover{
+    background-color: rgba(0,0,0,0.9);
+    color: var(--default-blue);
+}
+
+.slide-container .prev{
+    left: 2px;
+}
+
+.slide-container .next{
+    right: 2px; 
+}
+
+.dots-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.dots-container span{
+    cursor: pointer;
+    margin: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--colorDots);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.24) inset;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.24) inset;
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.24) inset;
+}
+
+.dots-container span.active{
+    background-color: var(--default-blue);
+}
+
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
